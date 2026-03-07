@@ -37,19 +37,35 @@ def find_above_average_students(students):
     
     Args:
         students: 학생 정보 딕셔너리 리스트
-    
+
     Returns:
         tuple: (평균 점수, 평균 이상 학생 이름 리스트)
     """
+    # 파이썬 문법이 어색해서, 리스트 컴프리헨션 사용 & 미사용 둘 다 해봤습니다
     # TODO: 모든 학생의 점수를 리스트로 추출하세요
-    pass
-    
+    studentList=[students[i]["score"] for i in range(len(students))]
+
+    # 리스트 컴프리헨션 사용 전
+    # studentList=[]
+    # for i in range(len(students)):
+    #     studentList.append(students[i]["score"])
+
     # TODO: 평균 점수를 계산하세요
     pass
+    sumScore = sum(studentList)
+    average = sumScore/len(studentList)
     
     # TODO: 평균 이상인 학생들의 이름을 리스트로 추출하세요
     pass
+    above_average_students=[students[i]["name"] for i in range(len(students))
+        if studentList[i] >= average]
     
+    #리스트 컴프리헨션 사용 전 
+    # above_average_students=[]
+    # for i in range(len(students)):
+    #     if studentList[i] >= average : 
+    #         above_average_students.append(students[i]["name"] )
+
     return average, above_average_students
 
 # 테스트 케이스
@@ -61,7 +77,7 @@ if __name__ == "__main__":
         {"name": "Charlie", "score": 78},
         {"name": "David", "score": 95}
     ]
-    
+
     avg, students = find_above_average_students(students1)
     print(f"평균 점수: {avg}")
     print(f"평균 이상 학생: {students}")
