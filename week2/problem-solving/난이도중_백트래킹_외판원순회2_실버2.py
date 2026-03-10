@@ -52,7 +52,7 @@ def backTracking(start, cur, count, currentCost):
         backTracking(start, i, count+1, currentCost + W[cur][i]) # 시작 도시, 현재위치, 방문한 도시횟수 증가,누적 비용에 현재 비용 추가
         visited[i]=False
 
-visited[0]==True
+visited[0]=True
 backTracking(0, 0, 1, 0)        
 
 minCost.sort()
