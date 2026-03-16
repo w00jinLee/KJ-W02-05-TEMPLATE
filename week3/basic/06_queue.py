@@ -20,7 +20,7 @@
 
 힌트:
 - 파이썬에서는 리스트로 큐 구현 가능
-- append(): 뒤에 추가 (enqueue)
+- append(): 뒤에 추가 (enqueue)                                                         
 - pop(0): 앞에서 제거 (dequeue)
 """
 
@@ -44,7 +44,10 @@ def process_print_queue(jobs):
     # TODO: 큐가 비어있지 않은 동안 반복
     ## 큐에서 작업 꺼내기
     ## 작업 처리 (출력 및 리스트에 추가)
-    pass
+    while len(queue) > 0 :
+        process = queue.popleft()
+        print("처리:", process)
+        processed.append(process)
     
     return processed
 
