@@ -7,12 +7,8 @@ paper=[]
 for _ in range(N):
     paper.append(list(map(int, sys.stdin.readline().strip().split())))
 
-
-# 처음에는 N을 기준으로 height, width 
 blueCount = 0
 whiteCount = 0
-bluePaper =False
-whitePaper = False
 
 def cutPaper(y, x, paper_len):
     global blueCount, whiteCount
@@ -39,8 +35,6 @@ def cutPaper(y, x, paper_len):
                     cutPaper(y, x, paper_len//2)
                     return
         whiteCount +=1
-
-
 
 cutPaper(0, 0, N)
 
