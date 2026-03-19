@@ -53,11 +53,13 @@ while True:
         print(X)
         break
     
+    is_apple = (board[ny][nx] == 1)
+
     worm.append((ny,nx))
     board[ny][nx] = 2
 
     # 사과 없으면 꼬리제거
-    if board[ny][nx] != 1:
+    if not is_apple:
         tail_y, tail_x = worm.popleft()
         board[tail_y][tail_x] = 0
 
@@ -66,7 +68,7 @@ while True:
             direction = (direction + 1) % 4
         else : # L
             direction = (direction - 1) % 4
-            cmd_idx +=1
+        cmd_idx +=1
 # 1. 시간 증가
 
 # 2. 현재 머리 위치 가져오기
@@ -78,16 +80,3 @@ while True:
 # 6.사과 있는지 확인
 
 # 사과 있으면 꼬리 안 줄임
-
-
-
-
-    # x초 뒤에 L(왼쪽), D(오른쪽) 방향으로 회전
-
-
-    # 이동할 때마다 뱀의 위치를 큐에 저장, 
-    # 이동 후 전의 위치와 현재 위치를 저장하고, 사과가 있다면 pop X, 없다면 전의 위치를 pop시킴
-
-
-
-
